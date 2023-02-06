@@ -13,15 +13,6 @@
 <p>
   <strong>Detail:</strong>
   <%= @book.details %>
-<<<<<<< HEAD
-=======
-</p>
-
-<p>
-  <% if @book.image.attached? %>
-    <%= image_tag @book.image %>
-  <% end %>
->>>>>>> c5497751d27b755af2726ca00a538a74ceff80f1
 </p>
 
 <p>
@@ -40,6 +31,14 @@
         <%= form.submit %>
     </div>
 <% end %>
+
+<h2>Review List</h2>
+<ul>
+  <% @book.book_review.each do |book_review|%>
+   <li><%= book_review.review %>
+     (<i><%= book_review.user_id %></i>)</li>
+<% end %>
+</ul>
 
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
