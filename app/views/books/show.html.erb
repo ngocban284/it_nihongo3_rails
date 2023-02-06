@@ -13,6 +13,15 @@
 <p>
   <strong>Detail:</strong>
   <%= @book.details %>
+<<<<<<< HEAD
+=======
+</p>
+
+<p>
+  <% if @book.image.attached? %>
+    <%= image_tag @book.image %>
+  <% end %>
+>>>>>>> c5497751d27b755af2726ca00a538a74ceff80f1
 </p>
 
 <p>
@@ -20,6 +29,18 @@
     <%= image_tag @book.image %>
   <% end %>
 </p>
+
+<h2>Review form</h2>
+<%= form_with(model: @book_review, local: true) do |form| %>
+    <div class="field">
+        <%= form.text_area :review %>
+        <%= form.hidden_field :book_id, :value => @book.id %>
+    </div>
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+<% end %>
+
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
